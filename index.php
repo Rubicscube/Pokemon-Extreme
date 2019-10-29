@@ -1,18 +1,43 @@
+<div class="container">
+    <div class="pokedex">
+        <form method="post">
+            <div class="row">
+                <div class="col">
+                    <label>pokémon type</label>
+                    <select name="type" class="form-control md-3">
+                        <option value="all">all</option>
+                        <option value="grass">Grass</option>
+                        <option value="poison">Poison</option>
+                        <option value="normal">Normal</option>
+                        <option value="electric">Electric</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <label>No. of pokémon to show</label>
+                    <select name="dropdownvalue" class="form-control md-3">
+                        <option value="20">20</option>
+                        <option value="30">30</option>
+                        <option value="40">40</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                        <option value="807">807 takes 3 mins to load</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary" type="submit" name="submit"> apply</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
 <?php
-//ini_set('display_errors', 1);
-//ini_set('display_startup_errors', 1);
-//error_reporting(E_ALL);
-
-
-//FETCH THE API JSON FILE for the given ID or name
-
-
 $contoshow = $_POST['dropdownvalue'];
 
 
 if (isset($_POST['dropdownvalue'])) {
 
-   echo '<div class="container-fluid">
+    echo '<div class="container-fluid">
         <div class="row">';
 
 
@@ -20,10 +45,6 @@ if (isset($_POST['dropdownvalue'])) {
         $url = "https://pokeapi.co/api/v2/pokemon/$i";
         $data = file_get_contents($url);
         $pokemon = json_decode($data);
-
-
-
-
 
 
         $datatemplate = array(
@@ -38,15 +59,8 @@ if (isset($_POST['dropdownvalue'])) {
         echo implode($datatemplate);
 
 
-
     }
-   echo '</div></div>';
-}
-
-
-foreach ($datatemplate as $entry) {
-    if ($entry->id  == 4)
-        echo "test";
+    echo '</div></div>';
 }
 
 ?>
@@ -72,37 +86,15 @@ foreach ($datatemplate as $entry) {
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-
-<div class="container">
-    <div class="pokedex">
-
-
-        <form method="post">
-
-            <select name="type">
-                <option value="all">all</option>
-                <option value="grass">Grass</option>
-                <option value="poison">Poison</option>
-                <option value="normal">Normal</option>
-                <option value="electric">Electric</option>
-            </select>
-
-
-            <select name="dropdownvalue">
-                <option value="20">20</option>
-                <option value="30">30</option>
-                <option value="40">40</option>
-                <option value="50">50</option>
-                <option value="100">100</option>
-                <option value="807">807 takes 3 mins to load</option>
-            </select>
-            <button type="submit" name="submit"> apply</button>
-
-
-        </form>
-    </div>
-</div>
-
+<nav aria-label="Page navigation example" class="pagination">
+    <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    </ul>
+</nav>
 </body>
 
 </html>

@@ -6,27 +6,32 @@
 
 //FETCH THE API JSON FILE for the given ID or name
 
+          
+for ($i = 1; $i <= 20; $i++) {
+    $url = "https://pokeapi.co/api/v2/pokemon/$i";
+    $data = file_get_contents($url);
+    $pokemon = json_decode($data);
 
-for ($i = 1; $i <= 150; $i++){
-$url = "https://pokeapi.co/api/v2/pokemon/$i";
-$data = file_get_contents($url);
-$pokemon = json_decode($data);
 
+    $datatemplate = array(
 
-    $datatemplate = array (
 
         '<div class="container">
-        <div class="pokedex">'.'<a href="https://pokeapi.co/api/v2/pokemon/'.$pokemon->id.'">
-    <div class="card mb-4">'.$id = $pokemon->id,
-        '<img class="card-image" src="'.$pokemon->sprites->front_default.'"/>',
-        '<div class="card-body"><h2 class="card-title">'.$pname = $pokemon->name.'</h2>',
-        '<p class="card-subtitle">Type:'.$ptype = $pokemon->types[0]->type->name.'</p>'
-            .'</a></div></div></div></div>'
+        <div class="pokedex">' . '<a href="https://pokeapi.co/api/v2/pokemon/' . $pokemon->id . '">
+    <div class="card mb-4">' . $id = $pokemon->id,
+        '<img class="card-image" src="' . $pokemon->sprites->front_default . '"/>',
+        '<div class="card-body"><h2 class="card-title">' . $pname = $pokemon->name . '</h2>',
+        '<p class="card-subtitle">Type:' . $ptype = $pokemon->types[0]->type->name . '</p>'
+            . '</a></div></div></div></div>'
     );
 
     echo implode($datatemplate);
+
+
+
 }
 ?>
+
 
 
 <!DOCTYPE html>
@@ -39,20 +44,36 @@ $pokemon = json_decode($data);
 
     <title>Pokedex</title>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
 
     <link rel="stylesheet" type="text/css" href="css/style.css" media="screen"/>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
 <body>
+<nav aria-label="Page navigation example" class="pagination">
+    <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    </ul>
+</nav>
 
 <div class="container">
-    <div class="pokedex">
-
-
-
-
+    <div class="row">
+        <div class="col">col</div>
+        <div class="col">col</div>
+        <div class="col">col</div>
+        <div class="col">col</div>
+        <div class="col">col</div>
     </div>
+
 </div>
 
 </body>

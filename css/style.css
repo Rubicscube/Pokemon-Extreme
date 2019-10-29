@@ -37,6 +37,8 @@ h1 {
     text-align: center;
 }
 
+
+
 .card:hover {
     animation: bounce 0.5s linear;
 }
@@ -71,6 +73,10 @@ h1 {
     100% {
         transform: translateY(0);
     }
+}
+
+.pagination{
+    margin: auto;
 }
 
 .wrap{

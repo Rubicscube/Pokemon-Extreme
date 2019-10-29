@@ -5,16 +5,15 @@
 
 
 body {
-    background-color: grey;
+    background-image: url("/Img/background.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     color: white;
     margin: 0;
-    font-family: rubik;
+    font-family: 'Staatliches', cursive;
 }
 
-.container {
-    padding: 40px;
-    margin: 0 auto;
-}
 
 h1 {
     text-transform: uppercase;
@@ -32,7 +31,8 @@ h1 {
 .card {
     list-style: none;
     padding: 40px;
-    background-color: #f4f4f4;
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 23%, rgba(148,187,233,1) 82%);
     color: #222;
     text-align: center;
 }

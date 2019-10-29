@@ -37,8 +37,6 @@ h1 {
     text-align: center;
 }
 
-
-
 .card:hover {
     animation: bounce 0.5s linear;
 }
@@ -75,17 +73,4 @@ h1 {
     }
 }
 
-.pagination{
-    margin: auto;
-}
 
-.wrap{
-    position: relative;
-}
-.wrap a{
-    position: absolute;
-    width:100%;
-    height:100%;
-    top:0px;
-    left:0px;
-}

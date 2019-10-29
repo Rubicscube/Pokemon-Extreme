@@ -6,32 +6,50 @@
 
 //FETCH THE API JSON FILE for the given ID or name
 
-          
-for ($i = 1; $i <= 20; $i++) {
-    $url = "https://pokeapi.co/api/v2/pokemon/$i";
-    $data = file_get_contents($url);
-    $pokemon = json_decode($data);
+
+$contoshow = $_POST['dropdownvalue'];
 
 
-    $datatemplate = array(
+if (isset($_POST['dropdownvalue'])) {
+
+   echo '<div class="container-fluid">
+        <div class="row">';
 
 
-        '<div class="container">
-        <div class="pokedex">' . '<a href="https://pokeapi.co/api/v2/pokemon/' . $pokemon->id . '">
-    <div class="card mb-4">' . $id = $pokemon->id,
-        '<img class="card-image" src="' . $pokemon->sprites->front_default . '"/>',
-        '<div class="card-body"><h2 class="card-title">' . $pname = $pokemon->name . '</h2>',
-        '<p class="card-subtitle">Type:' . $ptype = $pokemon->types[0]->type->name . '</p>'
-            . '</a></div></div></div></div>'
-    );
-
-    echo implode($datatemplate);
+    for ($i = 1; $i <= $contoshow; $i++) {
+        $url = "https://pokeapi.co/api/v2/pokemon/$i";
+        $data = file_get_contents($url);
+        $pokemon = json_decode($data);
 
 
 
+
+
+
+        $datatemplate = array(
+
+            '<div class="col-md-3"><a href="https://pokeapi.co/api/v2/pokemon/' . $pokemon->id . '">
+    <div class="card mb-4 bg-warning">' . $id = $pokemon->id,
+            '<img class="card-image" src="' . $pokemon->sprites->front_default . '"/>',
+            '<div class="card-body"><h2 class="card-title">' . $pname = $pokemon->name . '</h2>',
+            '<p class="card-subtitle">Type: ' . $ptype = $pokemon->types[0]->type->name . '</p></a></div></div></div>'
+        );
+
+        echo implode($datatemplate);
+
+
+
+    }
+   echo '</div></div>';
 }
-?>
 
+
+foreach ($datatemplate as $entry) {
+    if ($entry->id  == 4)
+        echo "test";
+}
+
+?>
 
 
 <!DOCTYPE html>
@@ -44,7 +62,6 @@ for ($i = 1; $i <= 20; $i++) {
 
     <title>Pokedex</title>
 
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
@@ -55,25 +72,35 @@ for ($i = 1; $i <= 20; $i++) {
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-<nav aria-label="Page navigation example" class="pagination">
-    <ul class="pagination">
-        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-    </ul>
-</nav>
 
 <div class="container">
-    <div class="row">
-        <div class="col">col</div>
-        <div class="col">col</div>
-        <div class="col">col</div>
-        <div class="col">col</div>
-        <div class="col">col</div>
-    </div>
+    <div class="pokedex">
 
+
+        <form method="post">
+
+            <select name="type">
+                <option value="all">all</option>
+                <option value="grass">Grass</option>
+                <option value="poison">Poison</option>
+                <option value="normal">Normal</option>
+                <option value="electric">Electric</option>
+            </select>
+
+
+            <select name="dropdownvalue">
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option value="40">40</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+                <option value="807">807 takes 3 mins to load</option>
+            </select>
+            <button type="submit" name="submit"> apply</button>
+
+
+        </form>
+    </div>
 </div>
 
 </body>

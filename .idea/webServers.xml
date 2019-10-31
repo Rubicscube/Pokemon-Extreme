@@ -2,7 +2,7 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="9ee1548f-12e4-46ab-820e-76e2f449cf36" name="poextreme" url="http://pokemon-extreme.local">
+      <webServer id="9ee1548f-12e4-46ab-820e-76e2f449cf36" name="poextreme" url="http://pokedex.local">
         <fileTransfer port="0" mountedRoot="" accessType="MOUNT" />
       </webServer>
     </option>

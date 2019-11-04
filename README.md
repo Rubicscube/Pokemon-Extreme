@@ -34,6 +34,12 @@ In the profile, you will see a brief description of the pokemon with the functio
 
 In the favorite page, you will see all your favorite pokemons listed with a share button on each of them, which will then direct you to the send email page ( where you can send your favorite pokemon to a friend ).
 
+![](img/image1.png)
+![](img/image2.png)
+![](img/image3.png)
+![](img/image4.png)
+![](img/image5.png)
+
 
 
 
